@@ -121,6 +121,8 @@ function addContexts(data) {
     };
   }
 
+  const osVersion = Platform.OS === 'ios' ? Constants.platform.ios.systemVersion : Constants.systemVersion;
+
   data.contexts = {
     ...(data.contexts || {}),
     device: {
@@ -130,7 +132,7 @@ function addContexts(data) {
     },
     os: {
       name: Platform.OS === 'ios' ? 'iOS' : 'Android',
-      version: `${Platform.Version}`,
+      version: `${osVersion}`,
     },
     app: {
       type: 'app',
